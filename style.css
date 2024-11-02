@@ -1,0 +1,21 @@
+*{
+    padding: 0px;
+    background-color: rgb(231, 61, 89);
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cronometro {
+    color: white;
+    font-size: 1.7em;
+    margin-top: 10px;
+}
+
+#foto > img {
+    width: 300px;  /* Define a largura */
+    height: auto;  /* Mantém a proporção */
+}
