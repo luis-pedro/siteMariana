@@ -8,6 +8,26 @@ body {
     
     text-align: center;
     margin-top: 50px;
+    position: relative;
+}
+
+.coracao {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    opacity: 0.8;
+    animation: cair 5s linear infinite; /* Animação de queda */
+}
+
+@keyframes cair {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh); /* Move para baixo da tela */
+    }
 }
 
 /* thead */
@@ -42,6 +62,4 @@ p{
     font-family: Dancing Script;
     font-size: 27px;
     text-align: center;
-    margin-left: 300px;
-    margin-right: 300px;
 }
