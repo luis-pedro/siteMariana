@@ -6,6 +6,7 @@
 }
 
 body {
+    overflow: auto;
     text-align: center;
     margin: 0;
     position: relative;
@@ -15,29 +16,30 @@ body {
 
 .coracao {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 40px; /* Tamanho do coração */
+    height: 40px; /* Tamanho do coração */
     background-color: rgb(255, 255, 255);
-    border-radius: 50%; /* Canto arredondado para formar a parte superior do coração */
-    transform: rotate(-45deg); /* Rotaciona para formar o coração */
-    opacity: 0.8;
+    opacity: 0.9;
     animation: cair linear infinite; /* Animação de queda */
+    transform: rotate(-45deg); /* Rotaciona para formar a base do coração */
+    margin: 0; /* Remove margens */
 }
 .coracao:before,
 .coracao:after {
     content: '';
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 40px; /* Tamanho das partes superiores */
+    height: 40px; /* Tamanho das partes superiores */
     background-color: rgb(255, 255, 255);
-    border-radius: 50%; /* Canto arredondado para as partes superiores do coração */
+    border-radius: 50%; /* Canto arredondado para as partes superiores */
+    box-shadow: 0 0 10px rgba(255, 255, 255); /* Sombra para dar profundidade */
 }
 .coracao:before {
-    top: -15px; /* Move para cima para formar a parte superior do coração */
+    top: -20px; /* Move para cima para formar a parte superior do coração */
     left: 0;
 }
 .coracao:after {
-    left: 15px; /* Move para a direita para formar a parte superior do coração */
+    left: 20px; /* Move para a direita para formar a parte superior do coração */
     top: 0;
 }
 @keyframes cair {
