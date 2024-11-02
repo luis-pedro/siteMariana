@@ -24,14 +24,14 @@
         <hr>
         <h1>Feliz 6 meses meu amor !!</h1>
 
-        <p>
+        <p id="p01">
             Enfim essa data tão especial chegou, 
             obrigado por tudo o que você fez por mim e vem fazendo ao longo desses meses, 
             obrigado por me apoiar e ser minha parceira em todos os momentos, 
             eu sou eternamente grato desde o dia em que você entrou na minha vida e se permetiu me amar, 
             obrigado por me aturar e por ser essa mulher incrível !!
         </p>
-        <p>
+        <p id="p02">
             Eu sei que nem tudo são flores, 
             mas prometo sempre resolver as coisas e melhorar com meus erros, e nisso, 
             te fazer a mulher mais feliz de todas !!
@@ -75,8 +75,9 @@
             
             // Define a posição inicial aleatória
             coracao.style.left = Math.random() * 100 + 'vw';
+            coracao.style.top = '0';
             coracao.style.animationDuration = Math.random() * 3 + 2 + 's'; // Duração aleatória entre 2s e 5s
-            
+
             document.body.appendChild(coracao);
             
             // Remove o coração após a animação

@@ -1,32 +1,51 @@
 *{
     padding: 0px;
+    margin: 0px;
     background-color: rgb(231, 61, 89);
     color: white;
 }
 
 body {
-    
     text-align: center;
-    margin-top: 50px;
+    margin: 0;
     position: relative;
+    padding: 20px;
+    height: 100vh;
 }
 
 .coracao {
     position: absolute;
     width: 30px;
     height: 30px;
-    background-color: red;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%; /* Canto arredondado para formar a parte superior do coração */
+    transform: rotate(-45deg); /* Rotaciona para formar o coração */
     opacity: 0.8;
-    animation: cair 5s linear infinite; /* Animação de queda */
+    animation: cair linear infinite; /* Animação de queda */
 }
-
+.coracao:before,
+.coracao:after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%; /* Canto arredondado para as partes superiores do coração */
+}
+.coracao:before {
+    top: -15px; /* Move para cima para formar a parte superior do coração */
+    left: 0;
+}
+.coracao:after {
+    left: 15px; /* Move para a direita para formar a parte superior do coração */
+    top: 0;
+}
 @keyframes cair {
     0% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(-45deg); /* Começa no topo da página */
     }
     100% {
-        transform: translateY(100vh); /* Move para baixo da tela */
+        transform: translateY(100vh) rotate(-45deg); /* Move para baixo da tela */
     }
 }
 
@@ -41,25 +60,33 @@ body {
 .cronometro {
     color: white;
     font-size: 1.7em;
-    margin-top: 10px;
+    margin-top: 2px;
     margin-bottom: 10px;
 }
 
 #foto > img {
+    margin-top: 100px;
+    margin-bottom: 10px;
     width: 300px;
     height: auto;
 }
 
-/* thead */
+/* tbody */
 
 h1 {
     font-family: Passions Conflict;
     font-size: 70px;
     font-weight: 300;
+    margin-top: 5px;
+    margin-bottom: 3px;
 }
 
 p{
     font-family: Dancing Script;
     font-size: 27px;
     text-align: center;
+}
+
+#p01 {
+    margin-bottom: 50px;
 }
