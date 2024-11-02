@@ -1,21 +1,47 @@
 *{
     padding: 0px;
     background-color: rgb(231, 61, 89);
+    color: white;
 }
 
 body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
     text-align: center;
     margin-top: 50px;
 }
+
+/* thead */
+
+.passions-conflict-regular {
+    font-family: "Passions Conflict", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
 
 .cronometro {
     color: white;
     font-size: 1.7em;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #foto > img {
-    width: 300px;  /* Define a largura */
-    height: auto;  /* Mantém a proporção */
+    width: 300px;
+    height: auto;
+}
+
+/* thead */
+
+h1 {
+    font-family: Passions Conflict;
+    font-size: 70px;
+    font-weight: 300;
+}
+
+p{
+    font-family: Dancing Script;
+    font-size: 27px;
+    text-align: center;
+    margin-left: 300px;
+    margin-right: 300px;
 }
