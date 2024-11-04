@@ -16,6 +16,7 @@
 </head>
 <body>
     <thead>
+        <!-- Cronometro -->
         <div id="foto"><img src="fotoWhattsapp.jpeg" alt="foto"></div>
         <p>dias juntos:</p>
         <div class="cronometro" id="cronometro">00 dias 00:00:00</div>
@@ -45,8 +46,8 @@
     <!-- Código Java Script da página -->
     <script>
         // Data de início
-        const dataInicio = new Date('2023-05-08T00:00:00');
-
+        const dataInicio = new Date('2024-05-08T00:00:00');
+        
         function atualizarCronometro() {
             const agora = new Date();
             const tempoDecorrido = agora - dataInicio;
@@ -63,31 +64,42 @@
                 String(horas).padStart(2, '0') + ":" + 
                 String(minutos).padStart(2, '0') + ":" + 
                 String(segundos).padStart(2, '0');
-        }
+    }
 
-        // Atualiza o cronômetro a cada segundo
-        setInterval(atualizarCronometro, 1000);
+    // Atualiza o cronômetro a cada segundo
+    setInterval(atualizarCronometro, 1000);
 
-        // Criar corações
-        function criarCoracao() {
-            const coracao = document.createElement('div');
-            coracao.className = 'coracao';
-            
-            // Define a posição inicial aleatória
-            coracao.style.left = Math.random() * 100 + 'vw';
-            coracao.style.top = '0';
-            coracao.style.animationDuration = Math.random() * 3 + 2 + 's'; // Duração aleatória entre 2s e 5s
+    function criarCoracao() {
+    const coracao = document.createElement('div');
+    coracao.className = 'coracao';
+    
+    // Define a posição inicial aleatória, limitando para não passar das margens laterais
+    const larguraTela = window.innerWidth;
+    const larguraCoracao = 30; // Ajuste este valor conforme o tamanho real do coração em pixels
+    coracao.style.left = Math.random() * (larguraTela - larguraCoracao) + 'px';
+    coracao.style.top = '0';
+    coracao.style.animationDuration = Math.random() * 3 + 2 + 's'; // Duração aleatória entre 2s e 5s
 
-            document.body.appendChild(coracao);
-            
-            // Remove o coração após a animação
-            coracao.addEventListener('animationend', () => {
-                coracao.remove();
-            });
-        }
-        
-        // Cria um coração a cada 500ms
-        setInterval(criarCoracao, 1000);
+    document.body.appendChild(coracao);
+    
+    // Remove o coração após a animação de queda
+    coracao.addEventListener('animationend', () => {
+        coracao.remove();
+    });
+    }
+
+    // Cria um coração a cada 500ms nos primeiros 5 segundos
+    const intervaloCoracao = setInterval(criarCoracao, 500); // A cada 500ms
+
+    // Para a criação dos corações e inicia a animação de desvanecimento após 5 segundos
+    setTimeout(() => {
+    clearInterval(intervaloCoracao); // Para de criar novos corações
+
+    // Seleciona todos os corações na tela e adiciona a classe de desvanecimento
+    document.querySelectorAll('.coracao').forEach(coracao => {
+        coracao.classList.add('desaparecer');
+    });
+    }, 3000); // 5000ms = 5 segundos
     </script>
 </body>
 </html>

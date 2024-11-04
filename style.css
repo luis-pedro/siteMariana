@@ -16,39 +16,49 @@ body {
 
 .coracao {
     position: absolute;
-    width: 40px; /* Tamanho do coração */
-    height: 40px; /* Tamanho do coração */
+    width: 30px;
+    height: 30px;
     background-color: rgb(255, 255, 255);
     opacity: 0.9;
-    animation: cair linear infinite; /* Animação de queda */
-    transform: rotate(-45deg); /* Rotaciona para formar a base do coração */
-    margin: 0; /* Remove margens */
+    animation: cair linear infinite;
+    transform: rotate(-45deg);
+    margin: 0;
 }
+
 .coracao:before,
 .coracao:after {
     content: '';
     position: absolute;
-    width: 40px; /* Tamanho das partes superiores */
-    height: 40px; /* Tamanho das partes superiores */
+    width: 30px;
+    height: 30px;
     background-color: rgb(255, 255, 255);
-    border-radius: 50%; /* Canto arredondado para as partes superiores */
-    box-shadow: 0 0 10px rgba(255, 255, 255); /* Sombra para dar profundidade */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255);
 }
 .coracao:before {
-    top: -20px; /* Move para cima para formar a parte superior do coração */
+    top: -20px;
     left: 0;
 }
 .coracao:after {
-    left: 20px; /* Move para a direita para formar a parte superior do coração */
+    left: 20px;
     top: 0;
 }
 @keyframes cair {
     0% {
-        transform: translateY(0) rotate(-45deg); /* Começa no topo da página */
+        transform: translateY(0) rotate(-45deg);
     }
     100% {
-        transform: translateY(100vh) rotate(-45deg); /* Move para baixo da tela */
+        transform: translateY(100vh) rotate(-45deg);
     }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.desaparecer {
+    animation: fadeOut 2s forwards; /* Animação para desaparecer */
 }
 
 /* thead */
