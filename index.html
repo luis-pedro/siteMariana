@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título</title>
+    <title>os melhores meses da minha vida</title>
     <link rel="stylesheet" href="style.css">
     <!-- fonte H1 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,12 +30,19 @@
             obrigado por tudo o que você fez por mim e vem fazendo ao longo desses meses, 
             obrigado por me apoiar e ser minha parceira em todos os momentos, 
             eu sou eternamente grato desde o dia em que você entrou na minha vida e se permetiu me amar, 
-            obrigado por me aturar e por ser essa mulher incrível !!
+            essa data é muito especial, pois a cada dia que passa, eu tenho mais certeza da minha decisão !!
         </p>
         <p id="p02">
-            Eu sei que nem tudo são flores, 
+            Sei que muitas vezes sou meio chato e implicante, e que ultimamente eu estou meio corrido e cansado, 
+            já passamos por muitas coisas juntos e eu sou eternamente grato por isso e por ter você ao meu lado, 
+            sendo minha companheira mais legal e leal, me apoiando em todo momento, eu sei que nem tudo são flores, 
             mas prometo sempre resolver as coisas e melhorar com meus erros, e nisso, 
             te fazer a mulher mais feliz de todas !!
+
+            <br><br>
+            obrigado por me aturar e por ser essa mulher incrível !!
+            <br>
+            eu te amo muito &#10084;	&#10084;	&#10084;
         </p>
 
     </tbody>
@@ -69,37 +76,26 @@
     // Atualiza o cronômetro a cada segundo
     setInterval(atualizarCronometro, 1000);
 
+    // Função para criar os corações
     function criarCoracao() {
     const coracao = document.createElement('div');
     coracao.className = 'coracao';
     
-    // Define a posição inicial aleatória, limitando para não passar das margens laterais
-    const larguraTela = window.innerWidth;
-    const larguraCoracao = 30; // Ajuste este valor conforme o tamanho real do coração em pixels
-    coracao.style.left = Math.random() * (larguraTela - larguraCoracao) + 'px';
+    // Define a posição inicial aleatória
+    coracao.style.left = Math.random() * 100 + 'vw';
     coracao.style.top = '0';
-    coracao.style.animationDuration = Math.random() * 3 + 2 + 's'; // Duração aleatória entre 2s e 5s
+    coracao.style.animationDuration = Math.random() * 4 + 3 + 's'; // Duração aleatória entre 3s e 4s
 
     document.body.appendChild(coracao);
     
-    // Remove o coração após a animação de queda
+    // Remove o coração após a animação
     coracao.addEventListener('animationend', () => {
         coracao.remove();
     });
     }
 
-    // Cria um coração a cada 500ms nos primeiros 5 segundos
-    const intervaloCoracao = setInterval(criarCoracao, 500); // A cada 500ms
-
-    // Para a criação dos corações e inicia a animação de desvanecimento após 5 segundos
-    setTimeout(() => {
-    clearInterval(intervaloCoracao); // Para de criar novos corações
-
-    // Seleciona todos os corações na tela e adiciona a classe de desvanecimento
-    document.querySelectorAll('.coracao').forEach(coracao => {
-        coracao.classList.add('desaparecer');
-    });
-    }, 3000); // 5000ms = 5 segundos
+    // Cria um coração a cada segundo (indefinidamente)
+    setInterval(criarCoracao, 1500); // A cada 1500ms
     </script>
 </body>
 </html>
