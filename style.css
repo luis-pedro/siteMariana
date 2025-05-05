@@ -1,8 +1,9 @@
+/* GERAL */
 *{
     padding: 0px;
     margin: 0px;
-    background-color: rgb(231, 61, 89);
-    color: white;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 body {
@@ -14,54 +15,54 @@ body {
     height: 100vh;
 }
 
-.coracao {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: rgb(255, 255, 255);
-    opacity: 0.9;
-    animation: cair linear infinite;
-    transform: rotate(-45deg);
-    margin: 0;
+/* THEAD */
+
+/*contador*/
+.contador {
+    background-color: rgb(188, 8, 131);
+    color: #ffffff;
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+    padding: 20px 30px;
+    border-radius: 20px;
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, background-color 0.5s ease, color 0.5s ease;
+    animation: aparecer 1s ease-in-out;
+    margin-top: 30px;
 }
 
-.coracao:before,
-.coracao:after {
-    content: '';
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 255, 255);
-}
-.coracao:before {
-    top: -20px;
-    left: 0;
-}
-.coracao:after {
-    left: 20px;
-    top: 0;
-}
-@keyframes cair {
-    0% {
-        transform: translateY(0) rotate(-45deg);
-    }
-    100% {
-        transform: translateY(100vh) rotate(-45deg);
-    }
+/* TBODY */
+
+hr{
+    margin-top: 50px;
+    margin-bottom: 10px;
 }
 
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+h1#historia {
+    font-family: Passions Conflict;
+    font-size: 50px;
+    font-weight: 300;
+    margin-top: 5px;
+    margin-bottom: 3px;
 }
 
-.desaparecer {
-    animation: fadeOut 2s forwards; /* Animação para desaparecer */
+h1 {
+    font-family: Passions Conflict;
+    font-size: 70px;
+    font-weight: 300;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    margin-right: 80vw;
 }
 
-/* thead */
+p{
+    font-family: Dancing Script;
+    font-size: 27px;
+    text-align: center;
+}
+
+/* cronometro */
 
 .passions-conflict-regular {
     font-family: "Passions Conflict", cursive;
@@ -81,28 +82,4 @@ body {
     margin-bottom: 10px;
     width: 300px;
     height: auto;
-}
-
-/* tbody */
-
-h1 {
-    font-family: Passions Conflict;
-    font-size: 70px;
-    font-weight: 300;
-    margin-top: 5px;
-    margin-bottom: 3px;
-}
-
-p{
-    font-family: Dancing Script;
-    font-size: 27px;
-    text-align: center;
-}
-
-#p01 {
-    margin-bottom: 50px;
-}
-
-#p02 {
-    padding-bottom: 50px;
 }

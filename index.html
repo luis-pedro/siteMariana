@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>os melhores meses da minha vida</title>
+    <title>Nossa história</title>
     <link rel="stylesheet" href="style.css">
     <!-- fonte H1 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,35 +16,17 @@
 </head>
 <body>
     <thead>
-        <!-- Cronometro -->
-        <div id="foto"><img src="fotoWhattsapp.jpeg" alt="foto"></div>
-        <p>dias juntos:</p>
-        <div class="cronometro" id="cronometro">00 dias 00:00:00</div>
+        <!-- CONTADOR DE DIAS -->
+        <div class="contador" id="contador"></div>
     </thead>
     <tbody>
         <hr>
-        <h1>Feliz 6 meses meu amor !!</h1>
+        <h1 id="historia">Nossa história ... </h1>
+        
 
-        <p id="p01">
-            Enfim essa data tão especial chegou, 
-            obrigado por tudo o que você fez por mim e vem fazendo ao longo desses meses, 
-            obrigado por me apoiar e ser minha parceira em todos os momentos, 
-            eu sou eternamente grato desde o dia em que você entrou na minha vida e se permetiu me amar, 
-            essa data é muito especial, pois a cada dia que passa, eu tenho mais certeza da minha decisão !!
-        </p>
-        <p id="p02">
-            Sei que muitas vezes sou meio chato e implicante, e que ultimamente eu estou meio corrido e cansado, 
-            já passamos por muitas coisas juntos e eu sou eternamente grato por isso e por ter você ao meu lado, 
-            sendo minha companheira mais legal e leal, me apoiando em todo momento, eu sei que nem tudo são flores, 
-            mas prometo sempre resolver as coisas e melhorar com meus erros, e nisso, 
-            te fazer a mulher mais feliz de todas !!
-
-            <br><br>
-            obrigado por me aturar e por ser essa mulher incrível !!
-            <br>
-            eu te amo muito &#10084;	&#10084;	&#10084;
-        </p>
-
+    
+        <p>dias juntos:</p>
+        <div class="cronometro" id="cronometro">00 dias 00:00:00</div>
     </tbody>
     <tfoot>
 
@@ -52,6 +34,44 @@
 
     <!-- Código Java Script da página -->
     <script>
+        //CONTADOR DE DIAS 
+
+        function atualizarContador() {
+        const dataInicio = new Date(2024, 4, 8); // Mês começa do 0 -> maio = 4
+        const hoje = new Date();
+
+        let anos = hoje.getFullYear() - dataInicio.getFullYear();
+        let meses = hoje.getMonth() - dataInicio.getMonth();
+
+        // Se ainda não passou o dia do mês atual, remove um mês
+        if (hoje.getDate() < dataInicio.getDate()) {
+            meses -= 1;
+        }
+
+        // Se os meses ficaram negativos, ajusta os anos e meses
+        if (meses < 0) {
+            anos -= 1;
+            meses += 12;
+
+        // Aplica animação
+        contador.classList.add('atualizado');
+        setTimeout(() => contador.classList.remove('atualizado'), 500);
+        }
+
+        // Atualiza o HTML
+        document.getElementById('contador').textContent = `${anos} ano(s) e ${meses} mês(es)`;
+    }
+
+    // Chama a função ao carregar a página
+    atualizarContador();
+
+
+
+
+
+
+
+
         // Data de início
         const dataInicio = new Date('2024-05-08T00:00:00');
         
@@ -75,27 +95,6 @@
 
     // Atualiza o cronômetro a cada segundo
     setInterval(atualizarCronometro, 1000);
-
-    // Função para criar os corações
-    function criarCoracao() {
-    const coracao = document.createElement('div');
-    coracao.className = 'coracao';
-    
-    // Define a posição inicial aleatória
-    coracao.style.left = Math.random() * 100 + 'vw';
-    coracao.style.top = '0';
-    coracao.style.animationDuration = Math.random() * 4 + 3 + 's'; // Duração aleatória entre 3s e 4s
-
-    document.body.appendChild(coracao);
-    
-    // Remove o coração após a animação
-    coracao.addEventListener('animationend', () => {
-        coracao.remove();
-    });
-    }
-
-    // Cria um coração a cada segundo (indefinidamente)
-    setInterval(criarCoracao, 1500); // A cada 1500ms
     </script>
 </body>
 </html>
