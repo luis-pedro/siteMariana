@@ -18,6 +18,12 @@
     <thead>
         <!-- CONTADOR DE DIAS -->
         <div class="contador" id="contador"></div>
+        <div class="tempo-juntos">
+            <div class="contador" id="contador">00 anos 00 meses</div>
+            <div class="barra-container">
+                <div class="barra" id="barra"></div>
+            </div>
+        </div>
     </thead>
     <tbody>
         <hr>
@@ -37,31 +43,38 @@
         //CONTADOR DE DIAS 
 
         function atualizarContador() {
-        const dataInicio = new Date(2024, 4, 8); // Mês começa do 0 -> maio = 4
-        const hoje = new Date();
+    const dataInicio = new Date(2024, 4, 8); // Maio é 4
+    const hoje = new Date();
 
-        let anos = hoje.getFullYear() - dataInicio.getFullYear();
-        let meses = hoje.getMonth() - dataInicio.getMonth();
+    let anos = hoje.getFullYear() - dataInicio.getFullYear();
+    let meses = hoje.getMonth() - dataInicio.getMonth();
 
-        // Se ainda não passou o dia do mês atual, remove um mês
-        if (hoje.getDate() < dataInicio.getDate()) {
-            meses -= 1;
-        }
-
-        // Se os meses ficaram negativos, ajusta os anos e meses
-        if (meses < 0) {
-            anos -= 1;
-            meses += 12;
-
-        // Aplica animação
-        contador.classList.add('atualizado');
-        setTimeout(() => contador.classList.remove('atualizado'), 500);
-        }
-
-        // Atualiza o HTML
-        document.getElementById('contador').textContent = `${anos} ano(s) e ${meses} mês(es)`;
+    if (hoje.getDate() < dataInicio.getDate()) {
+        meses -= 1;
     }
 
+    if (meses < 0) {
+        anos -= 1;
+        meses += 12;
+    }
+
+    const contador = document.getElementById('contador');
+    contador.textContent = `${anos} ano(s) e ${meses} mês(es)`;
+
+    // Animação
+    contador.classList.add('atualizado');
+    setTimeout(() => contador.classList.remove('atualizado'), 500);
+
+    // Atualiza barra de progresso
+    const totalMeses = anos * 12 + meses;
+    const progresso = Math.min((totalMeses / 60) * 100, 100); // 5 anos = 60 meses
+    document.getElementById('barra').style.width = progresso + "%";
+        }
+
+    // Atualizar no início e a cada minuto
+    setInterval(atualizarContador, 60000);
+    atualizarContador();
+    
     // Chama a função ao carregar a página
     atualizarContador();
 

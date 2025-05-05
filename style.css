@@ -32,6 +32,76 @@ body {
     margin-top: 30px;
 }
 
+.tempo-juntos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+/* Contador como antes, agora fica mais integrado */
+.contador {
+    background-color: rgb(188, 8, 131);
+    color: #ffffff;
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+    animation: aparecer 1s ease-in-out;
+}
+
+.contador.atualizado {
+    animation: pulse 0.5s ease-in-out;
+}
+
+.barra-container {
+    width: 80%;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.barra {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #ff85a2, #f5a4c7);
+    border-radius: 20px 0 0 20px;
+    transition: width 1s ease-in-out;
+    position: relative;
+}
+
+.barra::after {
+    content: "💖";
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* TBODY */
 
 hr{
@@ -42,9 +112,10 @@ hr{
 h1#historia {
     font-family: Passions Conflict;
     font-size: 50px;
-    font-weight: 300;
+    font-weight: 400;
     margin-top: 5px;
     margin-bottom: 3px;
+    color: rgb(188, 8, 131);
 }
 
 h1 {
