@@ -15,99 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Passions+Conflict&display=swap" rel="stylesheet">
 </head>
 <body>
-    <thead>
+    <div id="cabecalho">
         <!-- CONTADOR DE DIAS -->
-        <div class="contador" id="contador"></div>
-        <div class="tempo-juntos">
-            <div class="contador" id="contador">00 anos 00 meses</div>
-            <div class="barra-container">
-                <div class="barra" id="barra"></div>
-            </div>
-        </div>
-    </thead>
-    <tbody>
-        <hr>
-        <h1 id="historia">Nossa história ... </h1>
-        
+        <div class="contador" id="contador">00 anos 00 meses</div>
+    </div>
 
-    
-        <p>dias juntos:</p>
-        <div class="cronometro" id="cronometro">00 dias 00:00:00</div>
-    </tbody>
-    <tfoot>
-
-    </tfoot>
-
-    <!-- Código Java Script da página -->
-    <script>
-        //CONTADOR DE DIAS 
-
-        function atualizarContador() {
-    const dataInicio = new Date(2024, 4, 8); // Maio é 4
-    const hoje = new Date();
-
-    let anos = hoje.getFullYear() - dataInicio.getFullYear();
-    let meses = hoje.getMonth() - dataInicio.getMonth();
-
-    if (hoje.getDate() < dataInicio.getDate()) {
-        meses -= 1;
-    }
-
-    if (meses < 0) {
-        anos -= 1;
-        meses += 12;
-    }
-
-    const contador = document.getElementById('contador');
-    contador.textContent = `${anos} ano(s) e ${meses} mês(es)`;
-
-    // Animação
-    contador.classList.add('atualizado');
-    setTimeout(() => contador.classList.remove('atualizado'), 500);
-
-    // Atualiza barra de progresso
-    const totalMeses = anos * 12 + meses;
-    const progresso = Math.min((totalMeses / 60) * 100, 100); // 5 anos = 60 meses
-    document.getElementById('barra').style.width = progresso + "%";
-        }
-
-    // Atualizar no início e a cada minuto
-    setInterval(atualizarContador, 60000);
-    atualizarContador();
-    
-    // Chama a função ao carregar a página
-    atualizarContador();
-
-
-
-
-
-
-
-
-        // Data de início
-        const dataInicio = new Date('2024-05-08T00:00:00');
-        
-        function atualizarCronometro() {
-            const agora = new Date();
-            const tempoDecorrido = agora - dataInicio;
-
-            // Cálculo dos valores
-            const dias = Math.floor(tempoDecorrido / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((tempoDecorrido % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((tempoDecorrido % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((tempoDecorrido % (1000 * 60)) / 1000);
-
-            // Exibir o cronômetro
-            document.getElementById('cronometro').innerHTML = 
-                dias + " dias " + 
-                String(horas).padStart(2, '0') + ":" + 
-                String(minutos).padStart(2, '0') + ":" + 
-                String(segundos).padStart(2, '0');
-    }
-
-    // Atualiza o cronômetro a cada segundo
-    setInterval(atualizarCronometro, 1000);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
