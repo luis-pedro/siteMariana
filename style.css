@@ -62,9 +62,9 @@ h1{
     color: rgb(0, 0, 0);
 }
 
-#conteudo > p{
+#introducao > p{
     font-family: Dancing Script;
-    font-size: 30px;
+    font-size: 25px;
     
     margin-top: 10px;
     margin-left: 10px;
@@ -79,11 +79,55 @@ hr{
     color: white;
 }
 
-.tragetoria > p{
-    font-family: Dancing Script;
-    font-size: 20px;
-    
-    margin-left: 50px;
+/* LINHA DO TEPO */
 
-    color: rgb(0, 0, 0);
+.linha-do-tempo {
+    position: relative;
+    margin: 40px auto;
+    padding-left: 40px;
+    border-left: 3px solid rgb(188, 8, 131);
+    max-width: 90%;
+}
+
+.evento {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.ponto {
+    width: 18px;
+    height: 18px;
+    background-color: rgb(188, 8, 131);
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+    top: 0;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.conteudo {
+    margin-left: 20px;
+    background: #fff0f6;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.conteudo .data {
+    font-weight: bold;
+    color: rgb(188, 8, 131);
+    margin-bottom: 5px;
+}
+
+.conteudo img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.conteudo .descricao {
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    color: #333;
 }
