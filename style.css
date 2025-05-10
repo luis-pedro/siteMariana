@@ -52,21 +52,38 @@ body {
 /* Conteúdo */
 h1{
     font-family: Passions Conflict;
-    font-size: 50px;
+    font-size: 65px;
     font-weight: 200;
 
-    margin-top: 27px;
-    margin-bottom: 3px;
+    margin-top: 30px;
     margin-left: 10px;
     
+    text-align: center;
     color: rgb(0, 0, 0);
 }
 
-p{
+#conteudo > p{
+    font-family: Dancing Script;
+    font-size: 30px;
+    
+    margin-top: 10px;
+    margin-left: 10px;
+
+    color: rgb(0, 0, 0);
+}
+
+hr{
+    margin-top: 15px;
+    margin-bottom: 10px;
+
+    color: white;
+}
+
+.tragetoria > p{
     font-family: Dancing Script;
     font-size: 20px;
     
-    margin-left: 10px;
+    margin-left: 50px;
 
     color: rgb(0, 0, 0);
 }
