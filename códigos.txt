@@ -1,0 +1,177 @@
+Cógido HTML:
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa história</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- fonte H1 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap" rel="stylesheet">
+    <!-- fonte P -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Passions+Conflict&display=swap" rel="stylesheet">
+</head>
+<body>
+    <thead>
+        <!-- CONTADOR DE DIAS -->
+        <div class="contador" id="contador"></div>
+        <div class="tempo-juntos">
+            <div class="contador" id="contador">00 anos 00 meses</div>
+            <div class="barra-container">
+                <div class="barra" id="barra"></div>
+            </div>
+        </div>
+    </thead>
+    <tbody>
+        <hr>
+        <h1 id="historia">Nossa história ... </h1>
+        
+
+    
+        <p>dias juntos:</p>
+        <div class="cronometro" id="cronometro">00 dias 00:00:00</div>
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+</body>
+</html>
+
+
+Código Java Script:
+
+<!-- Código Java Script da página -->
+    <script>
+
+        // Data de início
+        const dataInicio = new Date('2024-05-08T00:00:00');
+        
+        function atualizarCronometro() {
+            const agora = new Date();
+            const tempoDecorrido = agora - dataInicio;
+
+            // Cálculo dos valores
+            const dias = Math.floor(tempoDecorrido / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((tempoDecorrido % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((tempoDecorrido % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((tempoDecorrido % (1000 * 60)) / 1000);
+
+            // Exibir o cronômetro
+            document.getElementById('cronometro').innerHTML = 
+                dias + " dias " + 
+                String(horas).padStart(2, '0') + ":" + 
+                String(minutos).padStart(2, '0') + ":" + 
+                String(segundos).padStart(2, '0');
+    }
+
+    // Atualiza o cronômetro a cada segundo
+    setInterval(atualizarCronometro, 1000);
+    </script>
+
+
+Código CSS:
+
+/* THEAD */
+
+.barra-container {
+    width: 80%;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.barra {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #ff85a2, #f5a4c7);
+    border-radius: 20px 0 0 20px;
+    transition: width 1s ease-in-out;
+    position: relative;
+}
+
+.barra::after {
+    content: "💖";
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TBODY */
+
+hr{
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+h1#historia {
+    font-family: Passions Conflict;
+    font-size: 50px;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    color: rgb(188, 8, 131);
+}
+
+h1 {
+    font-family: Passions Conflict;
+    font-size: 70px;
+    font-weight: 300;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    margin-right: 80vw;
+}
+
+p{
+    font-family: Dancing Script;
+    font-size: 27px;
+    text-align: center;
+}
+
+/* cronometro */
+
+.passions-conflict-regular {
+    font-family: "Passions Conflict", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.cronometro {
+    color: white;
+    font-size: 1.7em;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+#foto > img {
+    margin-top: 100px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: auto;
+}
