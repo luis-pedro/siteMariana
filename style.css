@@ -64,11 +64,12 @@ h1{
 
 #introducao > p{
     font-family: Dancing Script;
-    font-size: 25px;
+    font-size: 23px;
     
     margin-top: 10px;
     margin-left: 10px;
 
+    text-align: justify;
     color: rgb(0, 0, 0);
 }
 
