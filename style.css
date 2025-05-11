@@ -67,8 +67,8 @@ h1{
     font-size: 23px;
     
     margin-top: 10px;
-    margin-left: 14px;
-    margin-right: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
 
     text-align: justify;
     color: rgb(0, 0, 0);
@@ -81,7 +81,7 @@ hr{
     color: white;
 }
 
-/* LINHA DO TEPO */
+/* LINHA DO TEMPO */
 
 .linha-do-tempo {
     position: relative;
