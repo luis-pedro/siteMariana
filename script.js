@@ -31,6 +31,8 @@ atualizarContador();
 let indiceAtual = 0;
 const slides = document.querySelectorAll('.slide');
 const indicadores = document.querySelectorAll('.indicador');
+const botaoAnterior = document.querySelector('.botao.anterior');
+const botaoProximo = document.querySelector('.botao.proximo');
 
 function mostrarSlide(indice) {
     slides.forEach((slide, i) => {
@@ -44,5 +46,27 @@ function proximoSlide() {
     mostrarSlide(indiceAtual);
 }
 
-// Troca a cada 3 segundos
-setInterval(proximoSlide, 3000);
+function slideAnterior() {
+    indiceAtual = (indiceAtual - 1 + slides.length) % slides.length;
+    mostrarSlide(indiceAtual);
+}
+
+// Avançar a foto ( 5segundos )
+let intervalo = setInterval(proximoSlide, 5000);
+
+botaoProximo.addEventListener('click', () => {
+    proximoSlide();
+    reiniciarIntervalo();
+});
+
+botaoAnterior.addEventListener('click', () => {
+    slideAnterior();
+    reiniciarIntervalo();
+});
+
+function reiniciarIntervalo() {
+    clearInterval(intervalo);
+    intervalo = setInterval(proximoSlide, 5000);
+}
+
+mostrarSlide(indiceAtual);
