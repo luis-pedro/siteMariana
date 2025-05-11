@@ -24,3 +24,25 @@ function atualizarContador() {
 // Atualiza a cada minuto e ao carregar
 setInterval(atualizarContador, 60000);
 atualizarContador();
+
+//--------------------------------------
+
+//CARROSSEL
+let indiceAtual = 0;
+const slides = document.querySelectorAll('.slide');
+const indicadores = document.querySelectorAll('.indicador');
+
+function mostrarSlide(indice) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('ativa', i === indice);
+        indicadores[i].classList.toggle('ativo', i === indice);
+    });
+}
+
+function proximoSlide() {
+    indiceAtual = (indiceAtual + 1) % slides.length;
+    mostrarSlide(indiceAtual);
+}
+
+// Troca a cada 3 segundos
+setInterval(proximoSlide, 3000);
