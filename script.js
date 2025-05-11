@@ -70,3 +70,26 @@ function reiniciarIntervalo() {
 }
 
 mostrarSlide(indiceAtual);
+
+//--------------------------------------
+
+//CONTADOR
+// Data de início
+const dataInicio = new Date('2024-05-08T00:00:00');
+        
+    function atualizarCronometro() {
+        const agora = new Date();
+        const tempoDecorrido = agora - dataInicio;
+
+        // Cálculo dos valores
+        const dias = Math.floor(tempoDecorrido / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((tempoDecorrido % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((tempoDecorrido % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((tempoDecorrido % (1000 * 60)) / 1000);
+
+        // Exibir o cronômetro
+        document.getElementById('cronometro').innerHTML = dias + " dias " + String(horas).padStart(2, '0') + ":" + String(minutos).padStart(2, '0') + ":" + String(segundos).padStart(2, '0');
+    }
+
+    // Atualiza o cronômetro a cada segundo
+    setInterval(atualizarCronometro, 1000);
